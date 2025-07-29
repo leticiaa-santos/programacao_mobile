@@ -1,0 +1,5 @@
+tipos de dados no dart
+
+int, double, bool e string (padrão)
+
+dynamic - dinâmico, pode receber qualquer tipo
