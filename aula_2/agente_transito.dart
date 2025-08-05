@@ -4,11 +4,12 @@ void main () {
   print("Informe o nome do motorista: ");
   String? nome = stdin.readLineSync();
 
-  print("Velocidade do motorista na via: ");
+  print("Qual foi a velocidade do motorista $nome na via: ");
   double velocidade = double.parse(stdin.readLineSync()!);
 
   bool pagar_multa = true;
   double multa = 0;
+  double pagar = 0;
 
   if (velocidade <= 60) {
     print("Sem infração");
@@ -16,16 +17,19 @@ void main () {
   }
 
   else if (velocidade > 60 && velocidade <= 80) {
+    multa = 80;
     print("Infração leve");
     print("O valor da sua multa é 80,00");
   }
 
   else if (velocidade > 80 && velocidade <= 100) {
+    multa = 100;
     print("Infração média");
     print("O valor da sua multa é 100,00");
   }
 
   else {
+    multa = 150;
     print("Infração grave");
     print("Sua multa é de 150,00");
   }
@@ -42,18 +46,18 @@ void main () {
 
     switch (opcao) {
       case 1:
-        multa = 80 - (80 * 0.1);
-        print("O valor da sua multa com desconto é R\$ ${multa.toStringAsFixed(2)}");
+        pagar = multa - (multa * 0.1);
+        print("O valor da sua multa com desconto é R\$ ${pagar.toStringAsFixed(2)}");
         break;
       
       case 2:
-        multa = 100 / 2;
-        print("O valor da sua multa parcelada em 2x é R\$ ${multa.toStringAsFixed(2)}");
+        pagar = multa / 2;
+        print("O valor da sua multa parcelada em 2x é R\$ ${pagar.toStringAsFixed(2)}");
         break;
       
       case 3:
-        multa = (150 + (150 * 0.1)) / 3;
-        print("O valor da sua multa parcelada em 3x com juros de 10% é R\$ ${multa.toStringAsFixed(2)}");
+        pagar = (multa + (multa * 0.1)) / 3;
+        print("O valor da sua multa parcelada em 3x com juros de 10% é R\$ ${pagar.toStringAsFixed(2)}");
         break;
 
       default:

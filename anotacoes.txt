@@ -3,3 +3,5 @@ tipos de dados no dart
 int, double, bool e string (padrão)
 
 dynamic - dinâmico, pode receber qualquer tipo
+
+stdout.write - serve pro input estar na mesma linha do texto do print
