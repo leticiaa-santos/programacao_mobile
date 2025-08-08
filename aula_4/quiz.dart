@@ -1,3 +1,5 @@
+// CÓDIGOS USADOS NO QUIZ DA AULA SOBRE FUNÇÕES
+
 // import 'dart:io';
 
 // void main () {// principal
@@ -32,6 +34,7 @@
 //   menu();
 // }
 
+
 // void menu () { // sem parâmetro e sem retorno
 //   print("Bem a biblioteca da leticia");
 //   print("Escolha as opções: ");
@@ -43,19 +46,20 @@
 //   """);
 // }
 
-import 'dart:io';
 
-void main () {// principal
-  int valor_funcao = multiplicacao(2, 6);
-  int valor_final = valor_funcao * 10;
+// import 'dart:io';
 
-  print("Valor da função $valor_funcao");
+// void main () {// principal
+//   int valor_funcao = multiplicacao(2, 6);
+//   int valor_final = valor_funcao * 10;
 
-  print("Valor final $valor_final");
+//   print("Valor da função $valor_funcao");
+
+//   print("Valor final $valor_final");
   
-}
+// }
 
-int multiplicacao(int num1, int num2){
-  int valor = num1 * num2;
-  return valor;
-}
+// int multiplicacao(int num1, int num2){
+//   int valor = num1 * num2;
+//   return valor;
+// }
