@@ -5,3 +5,21 @@ int, double, bool e string (padrão)
 dynamic - dinâmico, pode receber qualquer tipo
 
 stdout.write - serve pro input estar na mesma linha do texto do print
+
+funções simples - sem parâmetro e sem retorno (print não é retorno)
+    - só o print a main só vê o valor
+    - no retorno é possível fazer algo posso usar o valor fora da função
+
+funções simples com parâmetro - não tem retorno
+    - a função precisa de uma informação para funcionar
+    - ela não retorna, então não tem nenhuma resposta com algo para ser usado fora dela
+
+funções só com retorno - não tem parâmetro, só retorna 
+    - a função é do tipo do retorno
+    - com o valor do retorno é possível usar em outro lugar
+    - não precisa de nenhuma informação para funcionar
+    - quando é necessário utilizar o valor para algo
+
+funções com parâmetro e retorno
+    - precisa de informações para funcionar
+    - retorna um valor possível de ser usado posteriormente
