@@ -23,3 +23,6 @@ funções só com retorno - não tem parâmetro, só retorna
 funções com parâmetro e retorno
     - precisa de informações para funcionar
     - retorna um valor possível de ser usado posteriormente
+
+valores nulos - não aloca nenhum espaço na memória
+valores vazios - tem estrutura, aloca espaço na memória, "o espaço em branco"
