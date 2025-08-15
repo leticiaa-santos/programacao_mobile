@@ -26,3 +26,6 @@ funções com parâmetro e retorno
 
 valores nulos - não aloca nenhum espaço na memória
 valores vazios - tem estrutura, aloca espaço na memória, "o espaço em branco"
+
+dartdev - site para ver erros
+comentar sobre estruras que são diferentes em outra linguagem, no código mesmo
