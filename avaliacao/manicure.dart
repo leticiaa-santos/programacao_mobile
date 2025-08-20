@@ -161,7 +161,7 @@ void processaPagamento (String nome, Map<String, dynamic> carrinho) {
 
       case 3:
         formaPagamento = "3 - Crédito - 3x sem juros";
-        totalCarrinho = totalCarrinho / 3;
+        totalCarrinho = totalCarrinho / 3; // colocar o valor da parcela no recido, além do valor total
         print("Compra realizada! O valor da sua parcela é R\$ ${totalCarrinho.toStringAsFixed(2)}");
         break;
 
