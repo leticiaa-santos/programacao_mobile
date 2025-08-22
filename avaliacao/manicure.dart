@@ -1,11 +1,11 @@
 import 'dart:io';
 
-// stdout.write('\x1B[2J\x1B[0;0H');
-
+// função principal do programa
 void main () {
 
   bool continuar = true;
 
+  // loop para reiniciar o programa, caso o usuário queira continuar
   while (continuar) {
 
     
@@ -50,6 +50,7 @@ void main () {
   }
 }
 
+// função para exibir os produtos
 void exibirServicos () {
   List<String> servicos = [
     "1 - Esmaltação - 50,00", 
@@ -65,6 +66,7 @@ void exibirServicos () {
   });
 }
 
+// função que adiciona produtos no carrinho (chave é sempre uma string e o valor pode ser qualquer tipo no retorno)
 Map<String, dynamic> adicionarCarrinho () {
 
   List<String> carrinhoServico = [];
@@ -130,6 +132,7 @@ Map<String, dynamic> adicionarCarrinho () {
   };
 }
 
+// função para processar o pagamento
 void processaPagamento (String nome, Map<String, dynamic> carrinho) {
     double totalCarrinho = carrinho['valorTotal'];
     List<String> servicos = carrinho ['servicos'];
@@ -137,6 +140,7 @@ void processaPagamento (String nome, Map<String, dynamic> carrinho) {
     double troco = 0.0;
     String formaPagamento = "";
     double valorDinheiro = 0.0;
+    double valorParcela = 0.0;
 
 
     print("""Escolha a sua forma de pagamento:
@@ -160,9 +164,9 @@ void processaPagamento (String nome, Map<String, dynamic> carrinho) {
         break;
 
       case 3:
-        formaPagamento = "3 - Crédito - 3x sem juros";
-        totalCarrinho = totalCarrinho / 3; // colocar o valor da parcela no recido, além do valor total
-        print("Compra realizada! O valor da sua parcela é R\$ ${totalCarrinho.toStringAsFixed(2)}");
+        formaPagamento = "Crédito - 3x sem juros";
+        valorParcela = totalCarrinho / 3; 
+        print("Compra realizada! O valor da sua parcela é R\$ ${valorParcela.toStringAsFixed(2)}");
         break;
 
       case 4:
@@ -186,12 +190,16 @@ void processaPagamento (String nome, Map<String, dynamic> carrinho) {
         return;
     }
 
-    mostrarRecibo(nome, servicos, precos, totalCarrinho, formaPagamento, troco, valorDinheiro);
+    mostrarRecibo(nome, servicos, precos, totalCarrinho, formaPagamento, troco, valorDinheiro, valorParcela);
 }
 
-void mostrarRecibo(String nome, List<String> servicos, List<double> precos, double valorTotal, String formaPagamento, double troco, double valorDinheiro){
+// função que recebe como parâmetro todos os dados necessários para exibir o recibo
+void mostrarRecibo(String nome, List<String> servicos, List<double> precos, double valorTotal, String formaPagamento, double troco, double valorDinheiro, double valorParcela){
+  
   stdout.write('\x1B[2J\x1B[0;0H');
+  
   print("========================================");
+  
   print("Seu recibo: ");
   print("Cliente: $nome");
   print("Seus itens: ");
@@ -203,9 +211,14 @@ void mostrarRecibo(String nome, List<String> servicos, List<double> precos, doub
   print("Forma de pagamento: $formaPagamento");
   print("Total pago: R\$ ${valorTotal.toStringAsFixed(2)}");
 
+  if (formaPagamento == "Crédito - 3x sem juros") {
+    print("Valor da parcela: ${valorParcela.toStringAsFixed(2)}");
+  }
+
   if(troco > 0){
     print("Valor em dinheiro: R\$ ${valorDinheiro.toStringAsFixed(2)}");
     print("Troco: R\$ ${troco.toStringAsFixed(2)}");
   }
+
   print("=========================================");
 }
