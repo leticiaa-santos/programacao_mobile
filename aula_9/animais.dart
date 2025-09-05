@@ -34,7 +34,9 @@ void main () {
 
   Papagaio ricardo = Papagaio();
 
-  List<Animal> animais = [];
+  List<Animal> animais = [toto, marie, ricardo];
 
-  
+  animais.forEach((animal){
+    animal.falar();
+  });
 }
