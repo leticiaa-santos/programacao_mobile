@@ -14,7 +14,8 @@ void menu () {
 3 - Editar dados de um animal
 4 - Remover um animal
 5 - Listar apenas um porte
-6 - Sair""");
+6 - Alimentar animal
+7 - Sair""");
 
   stdout.write("Escolha uma opção: ");
   int escolha = int.parse(stdin.readLineSync()!);
@@ -42,7 +43,13 @@ void menu () {
       break;
 
     case 6:
+      alimentar_animal();
+
+    case 7:
       print("Saindo...");
+
+    default:
+      print("Opção inválida");
   }
 
 }
@@ -305,6 +312,60 @@ void listar_especifico () {
       print("Opção inválida");
       break;
   }
+
+  menu();
+}
+
+void alimentar_animal () {
+  print("Portes para exclusão:");
+
+  print("""
+1 - Pequeno
+2 - Médio
+3 - Grande""");
+
+  stdout.write("Escolha o porte para ver os animais: ");
+  int porte = int.parse(stdin.readLineSync()!);
+
+  List<Animal> animais_alimentar = [];
+
+  switch(porte) {
+    case 1:
+      animais_alimentar = pequenoPorte;
+      break;
+    
+    case 2:
+      animais_alimentar = medioPorte;
+      break;
+
+    case 3:
+      animais_alimentar = grandePorte;
+      break;
+    
+    default:
+      print("Opção inválida");
+      break;
+  }
+
+  if (animais_alimentar.isEmpty) {
+    print("Não há animais desse porte");
+  }
+
+  print("Animais do porte selecionado");
+  for (int i = 0; i < animais_alimentar.length; i++){
+    print("${i + 1} - ${animais_alimentar[i].nome}");
+  }
+
+  stdout.write("Informe o número do animal que deseja alimentar: ");
+  int animal_escolha = int.parse(stdin.readLineSync()!);
+
+  if (animal_escolha < 1 || animal_escolha > animais_alimentar.length) {
+    print("Opção inválida.");
+    return;
+  }
+
+  Animal animal_escolhido = animais_alimentar[animal_escolha - 1];
+  animal_escolhido.alimentar();
 
   menu();
 }

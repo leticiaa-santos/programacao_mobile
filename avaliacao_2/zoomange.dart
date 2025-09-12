@@ -18,10 +18,6 @@ class Animal{
     }
   }
 
-  void dormir () {
-    print("O animal dorme");
-  }
-
   void alimentar () {
     print("O animal se alimenta");
   }
@@ -33,11 +29,6 @@ class Pequeno extends Animal{
   @override
   void alimentar() {
     print("O animal $nome está se alimentando");
-  }
-
-  @override
-  void dormir() {
-    print("O animal $nome está dormindo");
   }
 
 }
