@@ -1,0 +1,3 @@
+eu estou fazendo um código no esp32 que gera dados para uma planilha no google sheet automaticamente, mas agora eu quero implementar a funcionalidade de quando o botão aperta acende um led e registra "ligado" na planilha e quando apertado de novo aparece "desligado" na planilha. Eu tenho já um código do esp e o da planilha, vou te mandar para vc me mostrar como implementar
+
+ESP:
