@@ -1,3 +1,6 @@
+import 'package:app_bottom_nav/TelaHome.dart';
+import 'package:app_bottom_nav/telaAccount.dart';
+import 'package:app_bottom_nav/telaAlarm.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -31,10 +34,9 @@ class _NavBarState extends State<NavBar> {
 
   List<Widget> screens = [
     TelaHome(),
-    Tela2(),
-    Tela3()
+    TelaAlarm(),
+    TelaAccount()
   ];
-
 
 
 
@@ -44,8 +46,14 @@ class _NavBarState extends State<NavBar> {
       home: Scaffold(
         body: screens.elementAt(currentIndex),
         bottomNavigationBar: BottomNavigationBar(items: <BottomNavigationBarItem> [
-          
-        ]
+          BottomNavigationBarItem(label: "Home", icon: Icon(Icons.add_home) ),
+          BottomNavigationBarItem(label: "Alarmes", icon: Icon(Icons.access_alarms) ),
+          BottomNavigationBarItem(label: "Conta", icon: Icon(Icons.account_circle) ),
+        ],
+        currentIndex: currentIndex, //a posição desejada
+        onTap: changeIndex, //função que muda o index
+
+
         ),
       ),
     );
