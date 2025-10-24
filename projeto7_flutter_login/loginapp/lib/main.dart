@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:loginapp/api.dart';
+import 'package:loginapp/apiall.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,9 +35,19 @@ class _LoginPageState extends State<LoginPage> {
 
   String erro = "";
 
-  void login () {
+  void login_basic () {
     if(user.text == correctUser && password.text == correctPassword){
       Navigator.push(context, MaterialPageRoute(builder: (context) => ApiPage()));
+    } else {
+      setState(() {
+        erro = "Existem credenciais erradas";
+      });
+    }
+  }
+
+  void login_apiall () {
+    if(user.text == correctUser && password.text == correctPassword){
+      Navigator.push(context, MaterialPageRoute(builder: (context) => ApiAll()));
     } else {
       setState(() {
         erro = "Existem credenciais erradas";
@@ -114,9 +125,9 @@ class _LoginPageState extends State<LoginPage> {
                   )
                 ),
 
-                onPressed: login, 
+                onPressed: login_basic, 
                 child: 
-                Text("Login", 
+                Text("Login api basic", 
                   style: TextStyle(
                     fontSize: 20,
                   ),
@@ -126,6 +137,31 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(
                 height: 20,
               ),
+
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(horizontal: 35, vertical: 10),
+                  backgroundColor: Color(0xFF9D4EDD),
+                  foregroundColor: Color(0xFFFFFFFF),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadiusGeometry.circular(10)
+                  )
+                ),
+
+                onPressed: login_apiall, 
+                child: 
+                Text("Login api all", 
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+
+              SizedBox(
+                height: 20,
+              ),
+
+
 
               Text("$erro", 
                 style: TextStyle(
