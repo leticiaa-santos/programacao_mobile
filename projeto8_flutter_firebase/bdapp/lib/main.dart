@@ -1,3 +1,4 @@
+import 'package:bdapp/post.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: GetPage(),
     );
   }
@@ -57,12 +59,62 @@ class _GetPageState extends State<GetPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(),
-        body: Column(
-          children: [
-            Text("$temperature")
-          ]
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        scaffoldBackgroundColor: Color(0xFFF4F4F4)
+      ),
+      
+      home: Scaffold( 
+        appBar: AppBar(
+          title: Text("App com firebase - Get", 
+            style: TextStyle(color: Color(0xFFF4F4F4), 
+            ),
+          ),
+
+          centerTitle: true,
+          backgroundColor: Color(0xFF0A57A0),
+        
+        ),
+
+        
+    
+        body: Center(
+          child:
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                
+                SizedBox(
+                  height: 20,
+                ),
+
+                Text("Temperatura: $temperature°",
+                style: TextStyle(
+                  fontSize: 18
+                ),
+                ),
+
+                SizedBox(
+                  height: 20,
+                ),
+
+                ElevatedButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder:(context) => PostPage()));
+                },
+                
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFF0A57A0),
+                  foregroundColor: Color(0xFFF4F4F4),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadiusGeometry.circular(10)
+                  )
+                ), 
+                
+                child: Text("Tela Post")
+                
+                ),
+              ],
+            )
           
         )
       ),
