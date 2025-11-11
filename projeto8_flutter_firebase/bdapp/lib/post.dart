@@ -72,7 +72,7 @@ class _PostPageState extends State<PostPage> {
           child: Column(
             children: [
 
-              SizedBox(height: 20,),
+              SizedBox(height: 20),
 
               Text("Insira a sua temperatura"),
 

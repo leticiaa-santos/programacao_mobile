@@ -1,4 +1,6 @@
+import 'package:bdapp/delete.dart';
 import 'package:bdapp/post.dart';
+import 'package:bdapp/put.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -52,8 +54,6 @@ class _GetPageState extends State<GetPage> {
         });
       }
     );
-
-
   }
 
   @override
@@ -113,6 +113,44 @@ class _GetPageState extends State<GetPage> {
                 child: Text("Tela Post")
                 
                 ),
+
+                SizedBox(height: 20,),
+
+                ElevatedButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder:(context) => DeletePage()));
+                },
+                
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFF0A57A0),
+                  foregroundColor: Color(0xFFF4F4F4),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadiusGeometry.circular(10)
+                  )
+                ), 
+                
+                child: Text("Tela Delete")
+                
+                ),
+
+
+                SizedBox(height: 20,),
+
+                ElevatedButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder:(context) => PutPage()));
+                },
+                
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFF0A57A0),
+                  foregroundColor: Color(0xFFF4F4F4),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadiusGeometry.circular(10)
+                  )
+                ), 
+                
+                child: Text("Tela Put")
+                
+                ),
+
               ],
             )
           
